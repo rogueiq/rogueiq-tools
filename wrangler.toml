@@ -1,0 +1,5 @@
+name = "rogueiq-tools"
+main = "src/index.js"
+compatibility_date = "2025-10-01"
+account_id = "40b6df49dccc6011e04aae38bfa6a209"
+workers_dev = true
