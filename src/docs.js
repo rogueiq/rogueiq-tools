@@ -10,19 +10,19 @@ export function docsPage() {
 <meta name="description" content="Free, read-only RogueIQ money calculators as a JSON API and MCP server for AI agents. Net Worth by Age, from the Federal Reserve's 2025 Survey of Consumer Finances.">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
 <style>
-:root{--brand:#7C3AED;--brand-2:#3B82F6;--bg:#0b0b10;--surface:#15151d;--line:#2a2a36;--text:#f4f4f6;--muted:#a1a1b0;--code:#0f0f16}
+:root{--brand:#22E6D0;--brand-deep:#0EA5A4;--ink:#07090A;--ember:#FF7A1A;--bg:#07090A;--surface:#0d1012;--line:#1f2326;--text:#F5EFE6;--muted:#9A948C;--code:#050607}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Inter,sans-serif}
-main{max-width:860px;margin:0 auto;padding:28px 18px 60px}a{color:#b794f6}
+main{max-width:860px;margin:0 auto;padding:28px 18px 60px}a{color:var(--brand)}
 .eyebrow{color:var(--muted);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:0}
-h1{font-size:clamp(28px,6vw,40px);line-height:1.15;margin:.3em 0;background:linear-gradient(90deg,#fff,#c4b5fd 60%,var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{font-size:clamp(28px,6vw,40px);line-height:1.15;margin:.3em 0;background:linear-gradient(90deg,var(--text) 40%,var(--brand-deep) 70%,var(--brand));-webkit-background-clip:text;background-clip:text;color:transparent}
 h2{margin-top:2em;font-size:22px}.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0}
 pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-size:13.5px;line-height:1.5}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em}td code,p code,li code{background:var(--code);padding:1px 5px;border-radius:5px}
 table{width:100%;border-collapse:collapse;font-size:14.5px}td,th{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
-.btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}.btn{display:inline-block;padding:10px 16px;border-radius:999px;background:var(--brand);color:#fff;text-decoration:none;font-weight:600}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}.btn{display:inline-block;padding:10px 16px;border-radius:999px;background:var(--brand);color:var(--ink);text-decoration:none;font-weight:600}
 .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}.muted{color:var(--muted)}.disc{font-size:14px;color:var(--muted);border-top:1px solid var(--line);margin-top:40px;padding-top:16px}
 </style></head><body><main>
-<p class="eyebrow">RogueIQ Tools · for AI agents</p>
+<p class="eyebrow"><span style="color:var(--text);font-weight:700;letter-spacing:0;text-transform:none">Rogue<span style="color:var(--brand)">IQ</span></span> Tools · for AI agents</p>
 <h1>Built for your agent.</h1>
 <p>Every RogueIQ tool is available as an API and MCP server, so your assistant can run the numbers, cite the source, and keep you current. Free, read-only, no sign-up.</p>
 <div class="btns"><a class="btn" href="#mcp">Add the MCP server</a><a class="btn ghost" href="#api">API reference</a><a class="btn ghost" href="/openapi.json">openapi.json</a><a class="btn ghost" href="/llms.txt">llms.txt</a><a class="btn ghost" href="/SKILL.md">SKILL.md</a></div>
