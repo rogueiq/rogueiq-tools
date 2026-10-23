@@ -1,6 +1,6 @@
 import { DISCLAIMER, SOURCE, AGE_GROUPS, filterCatalog, WEB_URL } from "./calc.js";
-export const BASE = "https://rogueiq.com/networth-by-age/api";
-export const MCP_URL = "https://rogueiq.com/networth-by-age/mcp";
+export const BASE = "https://rogueiq.com/net-worth-by-age/api";
+export const MCP_URL = "https://rogueiq.com/net-worth-by-age/mcp";
 const filters = filterCatalog();
 
 export const TOOL_DESCRIPTION =

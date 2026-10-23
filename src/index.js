@@ -5,7 +5,7 @@ import { openapi, LLMS, SKILL, TOOL_DESCRIPTION, INPUT_SCHEMA } from "./content.
 import { docsPage } from "./docs.js";
 
 const app = new Hono();
-const NEW = "https://rogueiq.com/networth-by-age";
+const NEW = "https://rogueiq.com/net-worth-by-age";
 // Old workers.dev host: API + MCP keep answering directly (agents often don't follow POST redirects); everything else 301s to rogueiq.com.
 app.use("*", async (c, next) => {
   const u = new URL(c.req.url);
