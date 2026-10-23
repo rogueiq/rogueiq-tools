@@ -2,9 +2,9 @@
 
 Free, read-only RogueIQ money calculators for AI agents and developers, on a Cloudflare Worker (Hono, free plan).
 
-- Docs: https://rogueiq-tools.rogueiq.workers.dev/docs
-- API: `GET https://rogueiq-tools.rogueiq.workers.dev/v1/networth-by-age?age=34&net_worth=150000`
-- MCP (streamable HTTP, no auth): `https://rogueiq-tools.rogueiq.workers.dev/mcp`, tool `networth_percentile_by_age`
+- Docs: https://rogueiq.com/agents/
+- API: `GET https://rogueiq.com/networth-by-age/api/v1/networth-by-age?age=34&net_worth=150000`
+- MCP (streamable HTTP, no auth): `https://rogueiq.com/networth-by-age/mcp`, tool `networth_percentile_by_age`
 - `/openapi.json`, `/llms.txt`, `/SKILL.md`
 
 ## Same data and math as the web checker

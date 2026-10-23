@@ -1,5 +1,6 @@
 import { DISCLAIMER, SOURCE, AGE_GROUPS, filterCatalog, WEB_URL } from "./calc.js";
-export const BASE = "https://rogueiq-tools.rogueiq.workers.dev";
+export const BASE = "https://rogueiq.com/networth-by-age/api";
+export const MCP_URL = "https://rogueiq.com/networth-by-age/mcp";
 const filters = filterCatalog();
 
 export const TOOL_DESCRIPTION =
@@ -63,7 +64,7 @@ Every response includes the source citation, survey year, an as_of date and a di
 
 ## For agents
 
-- [MCP server](${BASE}/mcp): streamable HTTP, read-only, no auth. Tool: networth_percentile_by_age.
+- [MCP server](${MCP_URL}): streamable HTTP, read-only, no auth. Tool: networth_percentile_by_age.
 - [OpenAPI spec](${BASE}/openapi.json)
 - [SKILL.md](${BASE}/SKILL.md): when and how to use these tools.
 - [Docs](${BASE}/docs)
@@ -88,7 +89,7 @@ A read-only calculator. It describes how Federal Reserve survey data is distribu
 - "What percentile is $150K at 34?"
 
 ## How to call
-- MCP: add \`${BASE}/mcp\` (streamable HTTP, no auth) and call \`networth_percentile_by_age\`.
+- MCP: add \`${MCP_URL}\` (streamable HTTP, no auth) and call \`networth_percentile_by_age\`.
 - HTTP: \`GET ${BASE}/v1/networth-by-age?age=34&net_worth=150000\`
 - Optional, one at a time: \`filter=household&option=couple|single\`, \`filter=kids&option=kids|nokids\`, \`filter=kidcount&option=k0|k1|k2|k3\` (under 55 only), \`filter=home&option=owner|renter\`, \`filter=education&option=hs|somecollege|bachelor\`, \`filter=work&option=employee|selfemployed|retired\`, \`filter=income&income=85000\` (2024 income before taxes).
 

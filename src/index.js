@@ -5,11 +5,20 @@ import { openapi, LLMS, SKILL, TOOL_DESCRIPTION, INPUT_SCHEMA } from "./content.
 import { docsPage } from "./docs.js";
 
 const app = new Hono();
+const NEW = "https://rogueiq.com/networth-by-age";
+// Old workers.dev host: API + MCP keep answering directly (agents often don't follow POST redirects); everything else 301s to rogueiq.com.
+app.use("*", async (c, next) => {
+  const u = new URL(c.req.url);
+  if (!u.hostname.endsWith(".workers.dev")) return next();
+  if (u.pathname.startsWith("/v1/") || (u.pathname === "/mcp" && c.req.method !== "GET") || c.req.method === "OPTIONS") return next();
+  const dest = u.pathname === "/mcp" ? `${NEW}/mcp` : u.pathname === "/" ? `${NEW}/api/docs` : `${NEW}/api${u.pathname}`;
+  return c.redirect(dest + u.search, 301);
+});
 app.use("*", cors({ origin: "*", allowMethods: ["GET", "POST", "OPTIONS"],
   allowHeaders: ["Content-Type", "Accept", "Mcp-Session-Id", "Mcp-Protocol-Version"], exposeHeaders: ["Mcp-Session-Id"] }));
 app.use("*", async (c, next) => { await next(); c.header("X-Robots-Tag", "index, follow"); });
 
-app.get("/", (c) => c.redirect("/docs", 302));
+app.get("/", (c) => c.redirect(`${NEW}/api/docs`, 302));
 app.get("/health", (c) => c.json({ ok: true }));
 app.get("/docs", (c) => c.html(docsPage()));
 app.get("/openapi.json", (c) => c.json(openapi()));

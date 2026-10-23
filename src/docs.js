@@ -1,14 +1,14 @@
-import { BASE } from "./content.js";
+import { BASE, MCP_URL } from "./content.js";
 import { DISCLAIMER, WEB_URL, filterCatalog } from "./calc.js";
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 export function docsPage() {
-  const mcpJson = JSON.stringify({ mcpServers: { rogueiq: { url: `${BASE}/mcp` } } }, null, 2);
+  const mcpJson = JSON.stringify({ mcpServers: { rogueiq: { url: `${MCP_URL}` } } }, null, 2);
   const filters = filterCatalog().map((f) => `<tr><td><code>${f.id}</code></td><td>${esc(f.label)}</td><td>${
     f.id === "income" ? "<code>income=85000</code> (2024, before taxes)" : f.options.map((o) => `<code>${o.id}</code>`).join(" ")}</td></tr>`).join("");
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RogueIQ Tools API and MCP docs</title>
 <meta name="description" content="Free, read-only RogueIQ money calculators as a JSON API and MCP server for AI agents. Net Worth by Age, from the Federal Reserve's 2025 Survey of Consumer Finances.">
-<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="alternate" type="text/plain" href="${BASE}/llms.txt" title="llms.txt">
 <style>
 :root{--brand:#22E6D0;--brand-deep:#0EA5A4;--ink:#07090A;--ember:#FF7A1A;--bg:#07090A;--surface:#0d1012;--line:#1f2326;--text:#F5EFE6;--muted:#9A948C;--code:#050607}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Inter,sans-serif}
@@ -25,12 +25,12 @@ table{width:100%;border-collapse:collapse;font-size:14.5px}td,th{border-bottom:1
 <p class="eyebrow"><span style="color:var(--text);font-weight:700;letter-spacing:0;text-transform:none">Rogue<span style="color:var(--brand)">IQ</span></span> Tools · for AI agents</p>
 <h1>Built for your agent.</h1>
 <p>Every RogueIQ tool is available as an API and MCP server, so your assistant can run the numbers, cite the source, and keep you current. Free, read-only, no sign-up.</p>
-<div class="btns"><a class="btn" href="#mcp">Add the MCP server</a><a class="btn ghost" href="#api">API reference</a><a class="btn ghost" href="/openapi.json">openapi.json</a><a class="btn ghost" href="/llms.txt">llms.txt</a><a class="btn ghost" href="/SKILL.md">SKILL.md</a></div>
+<div class="btns"><a class="btn" href="#mcp">Add the MCP server</a><a class="btn ghost" href="#api">API reference</a><a class="btn ghost" href="${BASE}/openapi.json">openapi.json</a><a class="btn ghost" href="${BASE}/llms.txt">llms.txt</a><a class="btn ghost" href="${BASE}/SKILL.md">SKILL.md</a></div>
 
 <h2 id="mcp">Add the MCP server</h2>
 <p>Streamable HTTP, no auth. One tool: <code>networth_percentile_by_age</code>.</p>
-<div class="card"><p class="muted" style="margin-top:0">Server URL</p><pre><code>${BASE}/mcp</code></pre>
-<p class="muted">Claude Code</p><pre><code>claude mcp add --transport http rogueiq ${BASE}/mcp</code></pre>
+<div class="card"><p class="muted" style="margin-top:0">Server URL</p><pre><code>${MCP_URL}</code></pre>
+<p class="muted">Claude Code</p><pre><code>claude mcp add --transport http rogueiq ${MCP_URL}</code></pre>
 <p class="muted">Cursor, Claude Desktop and other clients (mcp.json)</p><pre><code>${esc(mcpJson)}</code></pre></div>
 
 <h2 id="api">Net Worth by Age</h2>

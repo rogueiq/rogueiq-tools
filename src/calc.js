@@ -27,7 +27,7 @@ export const SOURCE = {
     "The Fed does not publish percentile cut-offs by age; those are computed from its public microdata.",
 };
 export const AS_OF = "2026-10-09";
-export const WEB_URL = "https://rogueiq.github.io/networth-by-age/";
+export const WEB_URL = "https://rogueiq.com/networth-by-age/";
 
 export class InputError extends Error {}
 
