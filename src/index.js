@@ -16,7 +16,7 @@ app.use("*", async (c, next) => {
 });
 app.use("*", cors({ origin: "*", allowMethods: ["GET", "POST", "OPTIONS"],
   allowHeaders: ["Content-Type", "Accept", "Mcp-Session-Id", "Mcp-Protocol-Version"], exposeHeaders: ["Mcp-Session-Id"] }));
-app.use("*", async (c, next) => { await next(); c.header("X-Robots-Tag", "index, follow"); });
+app.use("*", async (c, next) => { await next(); const p = new URL(c.req.url).pathname; c.header("X-Robots-Tag", p === "/mcp" || p.startsWith("/v1") || p === "/openapi.json" ? "noindex" : "index, follow"); });
 
 app.get("/", (c) => c.redirect(`${NEW}/api/docs`, 302));
 app.get("/health", (c) => c.json({ ok: true }));
